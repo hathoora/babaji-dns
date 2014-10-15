@@ -1,0 +1,32 @@
+{
+    "name": "babaji-dns",
+    "description": "PHP asynchronous DNS",
+    "version": "0.1.0",
+    "keywords": ["dns", "async"],
+    "homepage": "http://hathoora.org/babaji-dns",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Usman Malik",
+            "email": "attozk@khat.pk",
+            "homepage": "http://attozk.mine.pk"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "react/datagram": "dev-master",
+        "react/mysql": "dev-react_04_compatible",
+        "react/dns": "dev-server_implementation as 0.4.0"
+    },
+    "repositories":
+    [
+        {
+            "type": "vcs",
+            "url": "https://github.com/attozk/dns"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/attozk/reactphp-mysql"
+        }
+    ]
+}
