@@ -1,0 +1,1 @@
+Motivation behind this experiment @ http://attozk.mine.pk/posts/404-php-dns-server-benchmarking-vs-pdns-mysql

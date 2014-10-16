@@ -1,9 +1,9 @@
 {
-    "name": "babaji-dns",
+    "name": "hathoora/babaji",
     "description": "PHP asynchronous DNS",
     "version": "0.1.0",
     "keywords": ["dns", "async"],
-    "homepage": "http://hathoora.org/babaji-dns",
+    "homepage": "http://hathoora.org/babaji",
     "license": "MIT",
     "authors": [
         {
@@ -12,10 +12,13 @@
             "homepage": "http://attozk.mine.pk"
         }
     ],
+    "autoload": {
+        "psr-0": {"hathoora\\babaji\\": "/"}
+    },
     "require": {
         "php": ">=5.4.0",
         "react/datagram": "dev-master",
-        "react/mysql": "dev-react_04_compatible",
+        "react/mysql": "dev-master",
         "react/dns": "dev-server_implementation as 0.4.0"
     },
     "repositories":
