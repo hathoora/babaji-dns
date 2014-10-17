@@ -8,7 +8,7 @@ There are three dns servers included:
 
 * `server-react-echo.php` Written with [PHPReact/Dns](https://github.com/reactphp/dns) library, Simple ECHO DNS Server which parses binary question and returns a binary response, without any answers. This server runs both on UDP & TCP.
 
-             * `server-udp-raw-echo.php` Similar to ECHO DNS Server but written with [`stream_socket_server`](http://php.net/manual/en/function.stream-socket-server.php) & [`stream_socket_recvfrom`](http://php.net/manual/en/function.stream-socket-recvfrom.php) which parses binary question and returns a binary response without any answers. This server runs only on UDP.
+             * `server-udp-raw-echo.php` Similar to ECHO DNS Server but written with [stream_socket_server](http://php.net/manual/en/function.stream-socket-server.php) & [stream_socket_recvfrom](http://php.net/manual/en/function.stream-socket-recvfrom.php) which parses binary question and returns a binary response without any answers. This server runs only on UDP.
 
 * `server-react-pdns-mysql.php` Written with [PHPReact/Dns](https://github.com/reactphp/dns) library, this DNS server parses binary question, looks it up in Mysql and returns a binary response. This is not the exact implementation of PDNS+Mysql, but works for this experiment. This server also runs on UDP & TCP. Unlike PDNS there is no caching layer.
 
