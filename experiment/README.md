@@ -38,9 +38,9 @@ dnsperf -d dnsperf-query-split-100K -s SERVERIP -p 555 -v
 
 # testing PHP React Pdns Alike DNS Server (TCP + UDP)
 dnsperf -d dnsperf-query-split-100K -s SERVERIP -p 554 -v
+```
 
 if you don't have splitted files on remote server, then use /usr/share/dnsperf/queryfile-example-current instead.
-```
 
 # Environment
 
