@@ -43,9 +43,9 @@ dnsperf -d dnsperf-query-split-100K -s SERVERIP -p 554 -v
 if you don't have splitted files on remote server, then use /usr/share/dnsperf/queryfile-example-current instead.
 ```
 
-# Results
+# Environment
 
-Your result may vary depending upon the server & network load. My specs were as following:
+DNS servers were running with the following specs: 
 
 * PowerDNS Authoritative Server 3.3.1 (non-recursive, default settings with mysql backend)
 * MariaDB Server 10.0.10
@@ -79,6 +79,9 @@ cache_alignment : 64
 address sizes   : 40 bits physical, 48 bits virtual
 power management:
 ```
+
+# Results
+Your result may vary depending upon the server & network load.
 
 Results against PDNS+Mysql:
 
@@ -166,3 +169,5 @@ I am interested mostly in `server-react-pdns-mysql.php` in which I do get PDNS l
 for improvement.
 
 I would continue with building this (Babaji DNS) server in PHP.
+
+php server-react-pdns-mysql.php 
