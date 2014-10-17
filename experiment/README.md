@@ -47,7 +47,7 @@ if you don't have splitted files on remote server, then use /usr/share/dnsperf/q
 DNS servers were running with on the same box with following specs: 
 
 * PowerDNS Authoritative Server 3.3.1 (non-recursive, default settings, 3 threads with mysql backend)
-* MariaDB Server 10.0.10
+* MariaDB Server 10.0.10 (not tuned, using default my.cnf)
 * Centos 6.5:
 
 ```
