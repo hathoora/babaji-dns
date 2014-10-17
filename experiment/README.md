@@ -1,5 +1,6 @@
 Motivation behind this experiment @ http://attozk.mine.pk/posts/404-php-dns-server-benchmarking-vs-pdns-mysql
 
+This is not a scientific test by any mean but more of a general stress test to see how does  `server-react-pdns-mysql.php` perform relatively against PDNS+Mysql.
 
 # Spinning up DNS Servers
 
@@ -7,7 +8,7 @@ There are three dns servers included:
 
 * `server-react-echo.php` Written with [PHPReact/Dns](https://github.com/reactphp/dns) library, Simple ECHO DNS Server which parses binary question and returns a binary response, without any answers. This server runs both on UDP & TCP.
 
-* `server-udp-raw-echo.php` Similar to ECHO DNS server but written with `stream_socket_server` & `stream_socket_recvfrom` which parses binary question and returns a binary response without any answers. This server runs only on UDP.
+             * `server-udp-raw-echo.php` Similar to ECHO DNS Server but written with [`stream_socket_server`](http://php.net/manual/en/function.stream-socket-server.php) & [`stream_socket_recvfrom`](http://php.net/manual/en/function.stream-socket-recvfrom.php) which parses binary question and returns a binary response without any answers. This server runs only on UDP.
 
 * `server-react-pdns-mysql.php` Written with [PHPReact/Dns](https://github.com/reactphp/dns) library, this DNS server parses binary question, looks it up in Mysql and returns a binary response. This is not the exact implementation of PDNS+Mysql, but works for this experiment. This server also runs on UDP & TCP. Unlike PDNS there is no caching layer.
 
@@ -22,8 +23,6 @@ php server-udp-raw-echo.php &
 ```
 
 # Benchmarking
-
-This is not a scientific test by any mean but more of a general stress test to see how does `server-react-pdns-mysql.php` perform relatively against PDNS+Mysql.
 
 Run dnsperf (ideally from a different server) to test DNS servers.
 
@@ -45,9 +44,9 @@ if you don't have splitted files on remote server, then use /usr/share/dnsperf/q
 
 # Environment
 
-DNS servers were running with the following specs: 
+DNS servers were running with on the same box with following specs: 
 
-* PowerDNS Authoritative Server 3.3.1 (non-recursive, default settings with mysql backend)
+* PowerDNS Authoritative Server 3.3.1 (non-recursive, default settings, 3 threads with mysql backend)
 * MariaDB Server 10.0.10
 * Centos 6.5:
 
@@ -81,7 +80,7 @@ power management:
 ```
 
 # Results
-Your result may vary depending upon the server & network load.
+Your result may vary depending upon the server specs and/or network load.
 
 Results against PDNS+Mysql:
 
@@ -164,10 +163,10 @@ Statistics:
 ```
 
 # Conclusion
-I am interested mostly in `server-react-pdns-mysql.php` in which I do get PDNS like results.
-`server-react-pdns-mysql.php` takes more CPU but looking at the results of `server-react-echo.php` there is room
+
+* 1 000 00 mixed DNS queries (using dnspref)
+* `709.417327` QPS with PDNS+Mysql
+* `676.448064` QPS with `server-react-pdns-mysql.php`
+* `server-react-pdns-mysql.php` is not that bad.
+* `server-react-pdns-mysql.php` took more CPU but looking at the results of `server-react-echo.php` there is room
 for improvement.
-
-I would continue with building this (Babaji DNS) server in PHP.
-
-php server-react-pdns-mysql.php 
