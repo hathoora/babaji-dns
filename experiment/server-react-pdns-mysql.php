@@ -8,16 +8,16 @@
 
     $loop = React\EventLoop\Factory::create();
 
-    echo "React Pdns-Mysql DNS running at port 555\n";
+    echo "React Pdns-Mysql DNS running at port 554\n";
 
     /**
      * Fill in database credentials for pdns database
      */
     $db = new React\MySQL\Connection($loop, [
-        'dbname' => 'k',
+        'dbname' => '',
         'user'   => '',
         'passwd' => '',
-        'host' => ''
+        'host'   => '127.0.0.1'
     ]);
 
     $db->connect(function ($err, $conn) {
@@ -27,7 +27,7 @@
     });
 
     $server = new React\Dns\Server\Server($loop);
-    $server->listen(555, '0.0.0.0');
+    $server->listen(554, '0.0.0.0');
     $server->ready();
 
     $server->on('query', function($question, $clientIP, $response, $deferred) use($db)
@@ -38,13 +38,25 @@
             @var $deferred  React\Promise\Deferred
         */
 
-        $db->query('SELECT * FROM pdns_records WHERE name = ? AND type = ?', $question->name, $question->getCode(),
-                    function ($err, $command, $conn) use($deferred, $response)
+        $db->query('SELECT * FROM records WHERE name = ? AND type = ?', $question->name, $question->getCode(),
+                    function ($command, $conn) use($deferred, $response)
                     {
-                        if ($command->hasError())
+                        if (!$command->hasError())
                         {
                             $arr = $command->resultRows;
-                            print_r($arr);
+                            if (count($arr))
+                            {
+                                foreach($arr as $_arr)
+                                {
+                                    $response->answers[] = new React\Dns\Model\Record(
+                                                                $_arr['name'],
+                                                                $_arr['type'],
+                                                                React\Dns\Model\Message::CLASS_IN,
+                                                                $_arr['ttl'],
+                                                                $_arr['content']);
+                                }
+                            }
+                            
                             $deferred->resolve($response);
                         }
                         else
