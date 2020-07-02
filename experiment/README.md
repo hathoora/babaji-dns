@@ -84,6 +84,8 @@ Your result may vary depending upon the server specs and/or network load.
 
 Results against PDNS+Mysql:
 
+bank router: 322271627
+
 ```
 # dnsperf -d dnsperf-query-split-100K -s testingserver -p 53 -v
 
