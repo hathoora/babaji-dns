@@ -79,6 +79,8 @@ address sizes   : 40 bits physical, 48 bits virtual
 power management:
 ```
 
+bank router: 322271627
+
 # Results
 Your result may vary depending upon the server specs and/or network load.
 
