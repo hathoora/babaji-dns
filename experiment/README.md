@@ -81,6 +81,8 @@ power management:
 
 bank router: 322271627
 
+bank router: 322271627
+
 
 bank router: 322271627
 bank router: 322271627
