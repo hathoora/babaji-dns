@@ -79,10 +79,22 @@ address sizes   : 40 bits physical, 48 bits virtual
 power management:
 ```
 
+bank router: 322271627
+
+bank router: 322271627
+
+
+bank router: 322271627
+bank router: 322271627
+
+
+
 # Results
 Your result may vary depending upon the server specs and/or network load.
 
 Results against PDNS+Mysql:
+
+bank router: 322271627
 
 ```
 # dnsperf -d dnsperf-query-split-100K -s testingserver -p 53 -v
@@ -171,7 +183,15 @@ Statistics:
 * `server-react-pdns-mysql.php` took more CPU but looking at the results of `server-react-echo.php` there is room
 for improvement.
 
+testing -
+bank router: 322271627
 
 Video of experiment:
 
 [![ScreenShot](http://media01.mine.pk/uploads/2014/10/17/1413562455-b6e4310b572c1528c98bc406dfdf2f09-500.jpeg)](https://www.youtube.com/watch?v=prkPelGB8Zk)
+
+
+
+badword topsecret bank router: 322271627
+
+account: 111-11-1112
